@@ -69,11 +69,13 @@ Il existe plein de formalismes permettant la description de ``procédure effecti
 \subsection{ Équivalence des langages de programmation}
 \label{subsec:equivalence_des_langages_de_programmation}
 
-Y a t-il de langage de programmation qui sont plus puissants que d'autres ? Tous les langages sont-ils équivalents ? 
-\newline 
+Y a t-il de langage de programmation qui sont plus puissants que d'autres ? Tous les langages sont-ils équivalents ?
+
 Il y a une équivalence entre langages en termes de calculabilité.  Lorsqu'un problème peut être résolu par un de ces langages, il peut alors être résolu par n'importe lequel autre.   
-S'il existe un programme Java qui résout un problème, il existera aussi un programme C/C++, PHP, … qui peut résoudre le même problème. On parle d'une équivalence théorique.\\
-D'un point de vue théorique ces langages s'appellent des langages complets. Ils permettent tous de résoudre les même problèmes.  Un problème est donc calculable indépendamment du langage utilisé. \\
+S'il existe un programme Java qui résout un problème, il existera aussi un programme C/C++, PHP, … qui peut résoudre le même problème. On parle d'une équivalence théorique.
+
+D'un point de vue théorique ces langages s'appellent des langages complets. Ils permettent tous de résoudre les même problèmes.  Un problème est donc calculable indépendamment du langage utilisé.
+
 D'un point de vue pratique on peut voir des différences (le programme sera plus court, s'écrire plus rapidement, le programme sera plus rapide, plus propre, plus fiable et encore d'autres critères).  Certains langages sont donc mieux adaptés que d'autres pour certains problèmes. 
 
 
@@ -111,15 +113,28 @@ if detecteur(P,P) = "Mauvais"
 	then stop
 else infecter un autre programme en y inserant P
 \end{lstlisting}
+Son comportement est décrit dans la figure \ref{fig:detecteurviruspp}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Images/detecteur_virus_p(p)}
+	\caption{Fonctionnement du programme \lstinline|drole| pour \lstinline|P|}
+	\label{fig:detecteurviruspp}
+\end{figure}
 
-Regardons maintenant si l'exécution de \lstinline|drole(drole)|, c'est à dire si l'on donne le code source de \lstinline|drole| à lui-même, est nuisible ou non.  
+Regardons maintenant si l'exécution de \lstinline|drole(drole)|, c'est à dire si l'on donne le code source de \lstinline|drole| à lui-même, est nuisible ou non. Son comportement est illustré sur la figure \ref{fig:detecteurviruspdrole}.
 \begin{lstlisting}
 drole(drole)
 if detecteur(drole, drole) = "Mauvais"
 	then stop
 else infecter un autre programme en y inserant drole
 \end{lstlisting}
-%TODO Reproduire en tikz (ou importer) l'image issue des slides
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Images/detecteur_virus_p(drole)}
+	\caption{Fonctionnement du programme \lstinline|drole| pour \lstinline|drole|}
+	\label{fig:detecteurviruspdrole}
+\end{figure}
+%TODO Reproduire l'image en tikz 
 \begin{itemize}
 	\item Supposons que \lstinline|drole(drole)| soit nuisible.
       Lorsqu'on exécute, \lstinline|drole(drole)|, \\

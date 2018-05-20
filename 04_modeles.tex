@@ -42,7 +42,7 @@ Mais il en existe beaucoup d'autres.
 
 \subsection{Modèle de langage}
 \label{ssub:mod_le_de_langage}
-Un langage est défini pas une grammaire formelle. L'objectif est de modéliser
+Un langage est défini par une grammaire formelle. L'objectif est de modéliser
 une classe de langage. Le langage est alors soit un ensemble récursif ou un
 ensemble récursivement énumérable.
 
@@ -153,11 +153,54 @@ On considère l'approche 2 en calculabilité.
 \section{Automates finis FA}
 \label{sub:automates_finis}
 
-\paragraph{Objectif :} Décider si un mot donné appartient ou non à un langage.
+\subsection{Concepts élémentaires et principe de base}
 
-\paragraph{Utilisation :} Utilisé dans les interfaces pour les humains (par
-exemple, les distributeurs).
+\paragraph{Modélisation élémentaire du concept de \emph{calcul} :}
+\begin{itemize}
+	\item Nombre fini d'états.
+	\item Lecture d'une donnée: un mot (chaîne de caractères).
+	\item Chaque symbole de la donnée est lu \textit{une et une seule} fois.
+	\item Transitions entre états en fonction du symbole lu.
+	\item État final = état après avoir lu tous les symboles de la donnée.
+	\item Pas de possibilité de \textit{mémorisation}.
+\end{itemize}
 
+\paragraph{Objectif :} Décider si un mot donné \textit{appartient} ou \textit{non} à un langage (un ensemble de mots).
+
+\paragraph{Utilisation :} Utilisé pour modéliser des comportements d'application en conception matérielle. Ils sont également utilisés dans d'autres domaines que l'informatique (mathématiques, logique, linguistique, \ldots)
+
+\subsubsection{Exemples d'automates finis}
+	Dans le domaine de l'informatique, on s'en sert par exemple dans les interfaces homme-machine, comme pour les distributeurs à boissons ou de manière plus sophistiquée dans les distributeurs de tickets pour les bus/trains/trams.
+	
+	\begin{myexem}
+		\label{fa_ex1_impair1}
+		Voici un exemple d'automate fini reconnaissant un nombre impair de 1 dans une chaîne de caractères composées de 0 et 1.
+		
+		On le définit comme suit :
+		\begin{itemize}
+			\item $\Sigma = \{0, 1\}$
+			\item $S = \{\textrm{pair1}, \textrm{impair1}\}$
+			\item pair1 : état initial
+			\item impair1 : état acceptant
+		\end{itemize}
+		Avec comme fonction de transition (graphique \ref{fig:modelesfaex1}) :
+		\begin{tabular}{c||c|c}
+				& 0			& 1			\\
+				\hline
+		pair1	& pair1 	& impair1	\\
+		impair1	& impair1	& pair1	
+		\end{tabular}
+	
+		Si le mot d'entrée contient un nombre impair de 1, alors l'état final sera acceptant (\textit{impair1}).
+		
+		Sinon, l'état final ne sera pas acceptant (\textit{pair1}).
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.7\linewidth]{Images/modeles_FA_ex1}
+			\caption{Exemple \ref{fa_ex1_impair1}}
+			\label{fig:modelesfaex1}
+		\end{figure}		
+	\end{myexem}
 \subsection{Modèles des automates finis}
 \label{ssub:mod_les_des_automates_finis}
 Un automate fini est composé de :
