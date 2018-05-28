@@ -51,6 +51,7 @@ version={4.0},
 \RequirePackage{pdfpages}
 % http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Subfloats
 \RequirePackage{caption}
+\RequirePackage{capt-of}
 \RequirePackage{subcaption}
 
 %Toujours mettre enumerate AVANT enumitem
@@ -64,6 +65,7 @@ version={4.0},
 
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
+\RequirePackage{tikz-qtree}
 \RequirePackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 %-----------------------------
 %Configuration des packages
@@ -213,20 +215,21 @@ version={4.0},
 \newcommand{\fdif}[2]{\frac{\dif #1}{\dif #2}}
 \newcommand{\ffdif}[2]{\frac{\dif^2 #1}{\dif #2^2}}
 
-\newtheorem{mydef}{Définition}
+\newtheorem{mydef}{Définition}[chapter]
 \newtheorem{mynota}[mydef]{Notation}
 \newtheorem{myprop}[mydef]{Propriétés}
 \newtheorem{myrem}[mydef]{Remarque}
 \newtheorem{myform}[mydef]{Formules}
-\newtheorem{mycorr}[mydef]{Corrolaire}
+\newtheorem{mycorr}[mydef]{Corollaire}
 \newtheorem{mytheo}[mydef]{Théorème}
 \newtheorem{mylem}[mydef]{Lemme}
 \newtheorem{myexem}[mydef]{Exemple}
 \newtheorem{myineg}[mydef]{Inégalité}
 \newtheorem{mycipher}[mydef]{Cipher}
 \newtheorem{myatk}[mydef]{Attaque}
-\newtheorem{myprob}{Problème}
-\newtheorem{mylaw}{Loi}
-\newtheorem{myhyp}{Hypothèse}
+\newtheorem{myprob}{Problème}[chapter]
+\newtheorem{mylaw}{Loi}[chapter]
+\newtheorem{myhyp}{Hypothèse}[chapter]
+\newtheorem{mythese}[mydef]{Thèse}
 
 \endinput
